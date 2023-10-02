@@ -2,6 +2,7 @@ package com.example.bookshelfapp.domain.repository
 
 
 import com.example.bookshelfapp.data.local.BookEntity
+import com.example.bookshelfapp.data.local.UserCredentials
 import com.example.bookshelfapp.domain.local.BookDatabase
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -13,9 +14,23 @@ import javax.inject.Inject
          return  db.dao().getAllBooks()
      }
 
+     override suspend fun checkCredential(email: String, password: String): Flow<List<UserCredentials>> {
+        return db.dao().getUserByCredentials(email, password)
+     }
+
      override suspend fun insertBookData(bookEntity: BookEntity): Boolean {
          return try {
              db.dao().insertBook(bookEntity)
+             true
+         } catch (e: Exception) {
+             e.printStackTrace()
+             false
+         }
+     }
+
+     override suspend fun insertUser(userCredentials: UserCredentials): Boolean {
+         return try {
+             db.dao().insertUser(userCredentials)
              true
          } catch (e: Exception) {
              e.printStackTrace()

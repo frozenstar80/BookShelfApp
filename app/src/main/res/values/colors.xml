@@ -6,4 +6,7 @@
     <color name="selectedColor">#FF4081</color>
     <color name="defaultColor">#BDBDBD</color>
     <color name="yellow">#FFEB3B</color>
+    <color name="text_color">#52420D</color>
+    <color name="grey_bg_color">#ECF1F4</color>
+
 </resources>

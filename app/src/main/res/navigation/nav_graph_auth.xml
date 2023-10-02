@@ -4,24 +4,33 @@
     android:id="@+id/nav_graph_auth.xml"
     app:startDestination="@id/splashScreenFragment">
 
+
+    <fragment
+        android:id="@+id/launchScreenFragment"
+        android:name="com.example.bookshelfapp.ui.fragment.LaunchScreenFragment"
+        android:label="LaunchScreenFragment" >
+        <action
+            android:id="@+id/action_launchScreenFragment_to_loginBottomSheetFragment"
+            app:destination="@id/loginBottomSheetFragment" />
+        <action
+            android:id="@+id/action_launchScreenFragment_to_signUpBottomSheetFragment"
+            app:destination="@id/signUpBottomSheetFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/loginBottomSheetFragment"
+        android:name="com.example.bookshelfapp.ui.bottomsheet.LoginBottomSheetFragment"
+        android:label="LoginBottomSheetFragment" />
+    <dialog
+        android:id="@+id/signUpBottomSheetFragment"
+        android:name="com.example.bookshelfapp.ui.bottomsheet.SignUpBottomSheetFragment"
+        android:label="SignUpBottomSheetFragment" />
     <fragment
         android:id="@+id/splashScreenFragment"
         android:name="com.example.bookshelfapp.ui.fragment.SplashScreenFragment"
         android:label="SplashScreenFragment" >
         <action
-            android:id="@+id/action_splashScreenFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_splashScreenFragment_to_launchScreenFragment"
+            app:destination="@id/launchScreenFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.example.bookshelfapp.ui.fragment.LoginFragment"
-        android:label="LoginFragment" >
-        <action
-            android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/registerFragment"
-        android:name="com.example.bookshelfapp.ui.fragment.RegisterFragment"
-        android:label="RegisterFragment" />
+
 </navigation>

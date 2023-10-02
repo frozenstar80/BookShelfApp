@@ -22,13 +22,13 @@ class SplashScreenFragment : BaseFragment<FragmentSplashScreenBinding>() {
         val zoomInAnimation: Animation = AnimationUtils.loadAnimation(requireContext(), R.anim.zoom_in)
         binding?.appCompatImageView2?.startAnimation(zoomInAnimation)
 
-        if (savedPrefManager.isLogin() == false) {
+        if (savedPrefManager.isLogin() == true) {
             Handler().postDelayed({
                 startActivity(Intent(requireContext(),HomeActivity::class.java))
             }, SPLASH_SCREEN_TIME_OUT)
         }else{
             Handler().postDelayed({
-                findNavControllerSafely()?.navigate(SplashScreenFragmentDirections.actionSplashScreenFragmentToLoginFragment())
+                findNavControllerSafely()?.navigate(SplashScreenFragmentDirections.actionSplashScreenFragmentToLaunchScreenFragment())
             }, SPLASH_SCREEN_TIME_OUT)
         }
 

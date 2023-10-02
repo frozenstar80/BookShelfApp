@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.example.bookshelfapp.data.local.BookEntity
+import com.example.bookshelfapp.data.local.UserCredentials
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -18,6 +19,12 @@ interface Dao {
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun updateBookDetails(location: BookEntity)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertUser(userCredentials: UserCredentials)
+
+    @Query("SELECT * FROM user WHERE userName = :userName AND password = :password")
+     fun getUserByCredentials(userName: String, password: String): Flow<List<UserCredentials>>
 
 
 }
