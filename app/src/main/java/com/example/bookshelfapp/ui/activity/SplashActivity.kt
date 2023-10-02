@@ -25,15 +25,17 @@ class SplashActivity : AppCompatActivity() {
         savedPrefManager =  SavedPrefManager(this)
 
         val zoomInAnimation: Animation = AnimationUtils.loadAnimation(this, R.anim.zoom_in)
-        binding?.appCompatImageView2?.startAnimation(zoomInAnimation)
+        binding.appCompatImageView2.startAnimation(zoomInAnimation)
 
         if (savedPrefManager.isLogin() == true) {
             Handler().postDelayed({
                 startActivity(Intent(this,HomeActivity::class.java))
+                finish()
             }, SPLASH_SCREEN_TIME_OUT)
         }else{
             Handler().postDelayed({
                 startActivity(Intent(this,AuthenticationActivity::class.java))
+                finish()
             },SPLASH_SCREEN_TIME_OUT)
         }
     }

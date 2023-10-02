@@ -31,6 +31,7 @@ class LoginBottomSheetFragment : BaseBottomSheetFragment<BottomSheetFragmentLogi
             if (loginSuccess) {
                 toast("Login Successful")
                 startActivity(Intent(requireContext(), HomeActivity::class.java))
+                requireActivity().finish()
             } else {
                 toast("Login Failed. Check Name and Password")
             }
