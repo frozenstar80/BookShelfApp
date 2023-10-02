@@ -13,7 +13,6 @@ import com.example.bookshelfapp.databinding.FragmentLaunchScreenBinding
 import java.util.*
 
 
-@SuppressLint("CustomSplashScreen")
 class LaunchScreenFragment : BaseFragment<FragmentLaunchScreenBinding>() {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentLaunchScreenBinding =
         FragmentLaunchScreenBinding::inflate

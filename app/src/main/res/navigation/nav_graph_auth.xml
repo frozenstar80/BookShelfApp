@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph_auth.xml"
-    app:startDestination="@id/splashScreenFragment">
+    app:startDestination="@id/launchScreenFragment">
 
 
     <fragment
@@ -23,14 +23,12 @@
     <dialog
         android:id="@+id/signUpBottomSheetFragment"
         android:name="com.example.bookshelfapp.ui.bottomsheet.SignUpBottomSheetFragment"
-        android:label="SignUpBottomSheetFragment" />
-    <fragment
-        android:id="@+id/splashScreenFragment"
-        android:name="com.example.bookshelfapp.ui.fragment.SplashScreenFragment"
-        android:label="SplashScreenFragment" >
+        android:label="SignUpBottomSheetFragment" >
         <action
-            android:id="@+id/action_splashScreenFragment_to_launchScreenFragment"
-            app:destination="@id/launchScreenFragment" />
-    </fragment>
+            android:id="@+id/action_signUpBottomSheetFragment_to_loginBottomSheetFragment"
+            app:destination="@id/loginBottomSheetFragment"
+            app:popUpTo="@id/signUpBottomSheetFragment"
+            app:popUpToInclusive="true"/>
+    </dialog>
 
 </navigation>

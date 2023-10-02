@@ -8,6 +8,7 @@ import com.example.bookshelfapp.data.local.UserCredentials
 import com.example.bookshelfapp.databinding.BottomSheetFragmentSignupBinding
 import com.example.bookshelfapp.ui.activity.HomeActivity
 import com.example.bookshelfapp.ui.viewModel.SignUpViewModel
+import com.example.bookshelfapp.util.findNavControllerSafely
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -44,8 +45,7 @@ class SignUpBottomSheetFragment : BaseBottomSheetFragment<BottomSheetFragmentSig
 
     private fun registrationSuccessful() {
         savedPrefManager.putLogin(true)
-        startActivity(Intent(requireContext(), HomeActivity::class.java))
-
+        findNavControllerSafely()?.navigate(SignUpBottomSheetFragmentDirections.actionSignUpBottomSheetFragmentToLoginBottomSheetFragment())
     }
 
     private fun validation(): Boolean {
