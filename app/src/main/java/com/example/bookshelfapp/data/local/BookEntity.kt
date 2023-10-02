@@ -11,9 +11,9 @@ data class BookEntity(
     @PrimaryKey(autoGenerate = false)
     var id              : String ,
     var image           : String? ,
-    var hits            : Int?    ,
+    var hits            : Long?    ,
     var alias           : String? ,
     var title           : String? ,
-    var lastChapterDate : Int?    ,
+    var lastChapterDate : Long?    ,
     var isFavourite : Boolean = false
 ) : Parcelable

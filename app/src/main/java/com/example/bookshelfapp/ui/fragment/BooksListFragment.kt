@@ -51,11 +51,11 @@ class BooksListFragment : BaseFragment<FragmentBooksListBinding>() {
             })
         binding?.rvBookList?.adapter = adapter
 
-        binding?.switchAscendingOrder?.setOnCheckedChangeListener { button, isChecked ->
+        binding?.switchAscendingOrder?.setOnCheckedChangeListener { _, isChecked ->
             this.isChecked = isChecked
             setSorting(booksList)
         }
-        binding?.chipGrp?.setOnCheckedChangeListener { group, checkedId ->
+        binding?.chipGrp?.setOnCheckedChangeListener { _, checkedId ->
             this.checkedId = checkedId
             setSorting(booksList)
         }

@@ -90,6 +90,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_book_list"
         android:layout_width="match_parent"
+        tools:listitem="@layout/item_book"
         android:layout_height="@dimen/_0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:padding="@dimen/_10dp"

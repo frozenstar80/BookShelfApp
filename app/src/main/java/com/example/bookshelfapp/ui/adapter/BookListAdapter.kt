@@ -48,7 +48,7 @@ class BookListAdapter(
                 addToFav(result)
             }
             if(result.isFavourite){
-                itemBinding.imgFav.setColorFilter(ContextCompat.getColor(itemBinding.imgFav.context, R.color.blue), PorterDuff.Mode.SRC_IN)
+                itemBinding.imgFav.setColorFilter(ContextCompat.getColor(itemBinding.imgFav.context, R.color.yellow), PorterDuff.Mode.SRC_IN)
             }else{
                 itemBinding.imgFav.colorFilter = null
             }
