@@ -15,4 +15,5 @@
     <string name="books_are_life">Books Are Life</string>
     <string name="enter_email_id">Enter Name</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="country">Country</string>
 </resources>
