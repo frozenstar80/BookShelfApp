@@ -4,7 +4,7 @@ import okhttp3.ResponseBody
 import retrofit2.Response
 
 abstract class BaseApiResponse {
-
+//Handle API Response
     suspend fun <T> safeApiCall(apiCall: suspend () -> Response<T>): NetworkResult<T> {
         loading<T>()
         try {

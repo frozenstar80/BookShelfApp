@@ -27,9 +27,11 @@ class LaunchScreenFragment : BaseFragment<FragmentLaunchScreenBinding>() {
         window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.blue)
 
         binding?.btnLogin?.setOnClickListener {
+            //Go to Login Screen
             findNavController().navigate(LaunchScreenFragmentDirections.actionLaunchScreenFragmentToLoginBottomSheetFragment())
         }
         binding?.btnRegister?.setOnClickListener {
+            //Go to Register Screen
             findNavController().navigate(LaunchScreenFragmentDirections.actionLaunchScreenFragmentToSignUpBottomSheetFragment())
         }
 

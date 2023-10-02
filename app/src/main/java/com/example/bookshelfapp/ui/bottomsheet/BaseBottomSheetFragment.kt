@@ -11,6 +11,7 @@ import com.example.bookshelfapp.util.SavedPrefManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
+//Base Class For All Bottom Sheet
 
 abstract class BaseBottomSheetFragment<T: ViewBinding>  : BottomSheetDialogFragment() {
     protected var binding: T? = null

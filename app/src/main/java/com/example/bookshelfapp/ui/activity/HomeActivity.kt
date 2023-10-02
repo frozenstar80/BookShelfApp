@@ -18,15 +18,19 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.signout, menu)
+        //inflate menu file
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_sign_out -> {
+                //sign out the user and set isLogin to false
                 SavedPrefManager(this).putLogin(false)
+                // navigate to Authentication Activity and destroy current activity
                 startActivity(Intent(this,AuthenticationActivity::class.java))
                 finish()
+
                 return true
             }
             else -> return super.onOptionsItemSelected(item)

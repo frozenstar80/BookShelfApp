@@ -25,6 +25,7 @@ class SignUpViewModel @Inject constructor(
         viewModelScope.launch {
            val registered =  dataRepository.insertUser(userCredentials)
             _signUpResult.postValue(registered)
+            //return true when user is added else false
         }
     }
 

@@ -7,6 +7,8 @@ import kotlinx.coroutines.flow.Flow
 
 interface RemoteDataRepository {
 
+    //Handle Database Operations
+
     suspend fun updateBookData(bookEntity: BookEntity) : Boolean
     suspend fun insertBookData(bookEntity: BookEntity) : Boolean
     suspend fun getAllBooks() : Flow<List<BookEntity>>

@@ -17,3 +17,7 @@ data class BookEntity(
     var lastChapterDate : Long?    ,
     var isFavourite : Boolean = false
 ) : Parcelable
+
+//Local Data Class to Store Book Info
+// @Parcelize is used to send the objects of This Class From One Screen to Another
+

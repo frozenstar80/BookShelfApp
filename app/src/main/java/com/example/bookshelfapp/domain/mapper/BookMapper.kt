@@ -3,6 +3,8 @@ package com.example.bookshelfapp.domain.mapper
 import com.example.bookshelfapp.data.local.BookEntity
 import com.example.bookshelfapp.data.remote.Book
 
+//Mapper Class to map Remote Data Class Object to Local Data Object
+
 fun Book.toBookEntity(): BookEntity {
     return BookEntity(
         id = this.id ?: "",

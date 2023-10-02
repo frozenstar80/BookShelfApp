@@ -28,6 +28,7 @@ class SignUpBottomSheetFragment : BaseBottomSheetFragment<BottomSheetFragmentSig
 
     private val signUpViewModel by viewModels<SignUpViewModel>()
     private var countryList : Array<String> = arrayOf()
+    //If User Does not select any country . By Default Algeria Will be his country.
     var country = "Algeria"
 
     override fun setup() {
@@ -56,7 +57,7 @@ class SignUpBottomSheetFragment : BaseBottomSheetFragment<BottomSheetFragmentSig
 
 
         binding?.btnRegister?.setOnClickListener {
-            if (validation()) {
+            if (validation()) { // Validate User First . If Validation Is Successful then save the user credential in database
                 signUpViewModel.insertUser(
                     UserCredentials(
                         userName = binding?.edtEmail?.text?.trim().toString(),
@@ -67,6 +68,7 @@ class SignUpBottomSheetFragment : BaseBottomSheetFragment<BottomSheetFragmentSig
             }
         }
         signUpViewModel.signUpResult.observe(viewLifecycleOwner){
+            //After credential is stored successfully navigate the user to Login Screen
             if (it){
                 registrationSuccessful()
             }else{
@@ -88,10 +90,10 @@ class SignUpBottomSheetFragment : BaseBottomSheetFragment<BottomSheetFragmentSig
         binding?.spinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parentView: AdapterView<*>?, selectedItemView: View?, position: Int, id: Long) {
                 country = countryList[position]
+                //set the selected country as user country
             }
 
             override fun onNothingSelected(parentView: AdapterView<*>?) {
-                // Do nothing here
             }
         }
 
@@ -124,6 +126,7 @@ class SignUpBottomSheetFragment : BaseBottomSheetFragment<BottomSheetFragmentSig
     }
 
         private fun readJsonFromAssets(): String {
+            //reading from raw folder from the file countries.json
             val `is` = resources.openRawResource(R.raw.countries)
             val writer: Writer = StringWriter()
             val buffer = CharArray(1024)

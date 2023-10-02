@@ -11,6 +11,9 @@ import com.example.bookshelfapp.util.SavedPrefManager
 import com.squareup.moshi.Moshi
 import okhttp3.ResponseBody
 
+//Base Class For All Fragment
+
+
 abstract class BaseFragment<T: ViewBinding>  : Fragment() {
     protected var binding: T? = null
     open lateinit var savedPrefManager: SavedPrefManager
@@ -34,6 +37,7 @@ abstract class BaseFragment<T: ViewBinding>  : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         savedPrefManager = SavedPrefManager(requireContext())
         setup()
+
 
     }
 

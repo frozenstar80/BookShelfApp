@@ -20,6 +20,7 @@ class LoginViewModel @Inject constructor(
     fun checkCredentials(userName: String, password: String) {
         viewModelScope.launch {
             dataRepository.checkCredential(userName, password)?.collectLatest {
+                //check if list size is 0 then user not exists return false else true
                 _loginResult.value = it.isNotEmpty()
             }
         }

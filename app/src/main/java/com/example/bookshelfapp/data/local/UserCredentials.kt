@@ -11,3 +11,6 @@ data class UserCredentials(
     val password : String,
     val country : String
 )
+
+//Local Data Class to Store User Info
+

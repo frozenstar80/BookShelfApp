@@ -6,6 +6,7 @@ import retrofit2.http.GET
 
 
 interface ApiService {
+//Interface Class for EndPoints
 
     @GET("b/ZEDF")
     suspend fun getBooks(): Response<List<Book>>

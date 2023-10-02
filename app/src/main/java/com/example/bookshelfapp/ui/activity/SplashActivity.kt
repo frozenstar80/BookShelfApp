@@ -14,6 +14,8 @@ import com.example.bookshelfapp.util.SavedPrefManager
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
 
+//    Opening Activity Of The Application.
+
     private lateinit var binding: ActivitySplashBinding
      private lateinit var savedPrefManager: SavedPrefManager
 
@@ -26,6 +28,9 @@ class SplashActivity : AppCompatActivity() {
 
         val zoomInAnimation: Animation = AnimationUtils.loadAnimation(this, R.anim.zoom_in)
         binding.appCompatImageView2.startAnimation(zoomInAnimation)
+
+        //If User Has Already Logged In Go to Home Activity .
+        // If not logged in go to authentication page
 
         if (savedPrefManager.isLogin() == true) {
             Handler().postDelayed({
@@ -41,6 +46,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     companion object{
+        //time out to open another activity
         const val SPLASH_SCREEN_TIME_OUT: Long = 3000
     }
 }

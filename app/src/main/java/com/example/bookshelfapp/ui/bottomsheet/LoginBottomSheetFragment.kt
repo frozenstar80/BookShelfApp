@@ -20,7 +20,7 @@ class LoginBottomSheetFragment : BaseBottomSheetFragment<BottomSheetFragmentLogi
     override fun setup() {
 
         binding?.btnLoginUser?.setOnClickListener {
-            if (validation()) {
+            if (validation()) {  // Validate User First . If Validation Is Successful then check if user has registered or not
                 val userName = binding?.edtEmail?.text?.trim().toString()
                 val password = binding?.edtPassword?.text.toString()
                 loginViewModel.checkCredentials(userName, password)
@@ -28,7 +28,7 @@ class LoginBottomSheetFragment : BaseBottomSheetFragment<BottomSheetFragmentLogi
         }
 
         loginViewModel.loginResult.observe(this, Observer { loginSuccess ->
-            if (loginSuccess) {
+            if (loginSuccess) { // If loginSuccess -> true then user exits otherwise show error
                 toast("Login Successful")
                 startActivity(Intent(requireContext(), HomeActivity::class.java))
                 requireActivity().finish()

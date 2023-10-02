@@ -10,3 +10,5 @@ data class Book(
     @SerializedName("title"           ) var title           : String? = null,
     @SerializedName("lastChapterDate" ) var lastChapterDate : Long?    = null
 )
+
+//Remote Data Class to Store Book Info

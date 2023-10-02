@@ -20,17 +20,25 @@ class BookDetailScreenFragment : BaseFragment<FragmentBooksDetailBinding>() {
     private val navArgs by navArgs<BookDetailScreenFragmentArgs>()
 
     override fun setup() {
+        //Set Up Data From the Nav Args
+
+        //set image from GLide
         GlideLoader(binding?.imgBook?.context!!).loadPic(navArgs.booksEntity?.image.toString(),binding?.imgBook)
+        //set title of book
         binding?.txtBookName?.text = navArgs.booksEntity?.title
+        //set hits
         binding?.txtHits?.text = navArgs.booksEntity?.hits.toString()
 
         if(navArgs.booksEntity?.isFavourite == true){
+            //If book is favourite then change color to blue
             binding?.imgFav?.setColorFilter(ContextCompat.getColor(binding?.imgFav?.context!!, R.color.yellow), PorterDuff.Mode.SRC_IN)
         }else{
             binding?.imgFav?.colorFilter = null
         }
 
         binding?.txtAlias?.text = navArgs.booksEntity?.alias
+
+        //convert the time in millis to user readable format
 
         binding?.txtUpdated?.text = navArgs.booksEntity?.lastChapterDate?.let {
             convertTimestampToDate(

@@ -9,3 +9,4 @@ import com.example.bookshelfapp.data.local.UserCredentials
 abstract class BookDatabase  : RoomDatabase(){
     abstract fun dao(): Dao
 }
+//Data Base Class

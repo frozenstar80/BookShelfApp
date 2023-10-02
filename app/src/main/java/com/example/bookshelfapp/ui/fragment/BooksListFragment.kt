@@ -37,6 +37,7 @@ class BooksListFragment : BaseFragment<FragmentBooksListBinding>() {
         viewModel.getBooksListFromLocal()
         adapter = BookListAdapter(data = arrayListOf(),
             onRootItemClicked = {
+                //If User Clicks on Card View then navigate the user to details screen
                 findNavControllerSafely()?.navigate(
                     BooksListFragmentDirections.actionBooksListFragmentToBookDetailScreenFragment(
                         it
@@ -44,6 +45,7 @@ class BooksListFragment : BaseFragment<FragmentBooksListBinding>() {
                 )
             },
             addToFav = {
+                //If User Clicks on Star Icon then update the DB and also the adapter
                 viewModel.updateBookData(bookEntity = it.copy(isFavourite = it.isFavourite.not()))
                 val index = booksList.indexOf(it)
                 booksList[index] = it.copy(isFavourite = it.isFavourite.not())
@@ -53,6 +55,7 @@ class BooksListFragment : BaseFragment<FragmentBooksListBinding>() {
 
         binding?.switchAscendingOrder?.setOnCheckedChangeListener { _, isChecked ->
             this.isChecked = isChecked
+            //set isChecked to true when enabled
             setSorting(booksList)
         }
         binding?.chipGrp?.setOnCheckedChangeListener { _, checkedId ->
@@ -66,17 +69,22 @@ class BooksListFragment : BaseFragment<FragmentBooksListBinding>() {
         viewModel.booksListRemote.observe(viewLifecycleOwner, EventObserver { response ->
             when (response) {
                 is NetworkResult.Loading -> {
+                    //Loads loader
                     showProgressBar()
                 }
 
                 is NetworkResult.Error -> {
+                    //hide the loader
                     hideProgressBar()
+                    //handle api failure
                     toast(response.message.toString())
                     Log.d(TAG, response.message.toString())
                 }
 
                 is NetworkResult.Success -> {
+                    //hide the loader
                     hideProgressBar()
+                    //handle api success
                     booksList = response.data?.toBookEntityList()?.toMutableList() ?: arrayListOf()
                     viewModel.insertBookData(booksList)
                     setSorting(booksList)
@@ -104,17 +112,22 @@ class BooksListFragment : BaseFragment<FragmentBooksListBinding>() {
     private fun setSorting(bookEntityList: List<BookEntity>) {
         when (binding?.chipGrp?.findViewById<Chip>(checkedId)) {
             binding?.chipTitle -> {
+                //If Sort By Ascending switch is enabled then sortedBy function will sort the list in Ascending order
+                // If not enabled then in Descending Order on the basis of Title
                 showOrderChangeSwitch()
                 setDataInAdapter(if (isChecked) bookEntityList.sortedBy { it.title } else bookEntityList.sortedByDescending { it.title })
             }
 
             binding?.chipFav -> {
                 hideOrderChangeSwitch()
+                // Filter Out Favourite Books Only
                 setDataInAdapter(bookEntityList.filter { it.isFavourite })
             }
 
             binding?.chipHits -> {
                 showOrderChangeSwitch()
+                //If Sort By Ascending switch is enabled then sortedBy function will sort the list in Ascending order
+                // If not enabled then in Descending Order on the basis of Hits
                 setDataInAdapter(if (isChecked) bookEntityList.sortedBy { it.hits } else bookEntityList.sortedByDescending { it.hits })
             }
 

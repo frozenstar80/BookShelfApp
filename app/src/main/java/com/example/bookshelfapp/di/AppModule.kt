@@ -32,11 +32,12 @@ class AppModule {
             OkHttpClient.Builder().apply {
                 readTimeout(600,TimeUnit.SECONDS)
                 writeTimeout(600,TimeUnit.SECONDS)
-                addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+                addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)) // added interceptor to log the data
 
     }.build()
     )
         .build()
+    // Retrofit Builder Class for Network Calling
 
     @Provides
     @Singleton
@@ -48,6 +49,9 @@ class AppModule {
         ).fallbackToDestructiveMigration()
             .build()
     }
+
+    // Room Database Builder Class for Network Calling
+
 
     @Provides
     @Singleton

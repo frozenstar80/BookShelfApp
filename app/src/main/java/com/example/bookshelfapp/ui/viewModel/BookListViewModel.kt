@@ -39,6 +39,8 @@ class BookListViewModel @Inject constructor(private val repository: DataReposito
                 else
                     _booksListLocalLiveData.postValue(Event(it))
             }
+            // Calling This Function From Fragment ensures that at first load it loads data from server.
+            // On next reload it loads data from the database
         }
 
     fun updateBookData(bookEntity: BookEntity) {

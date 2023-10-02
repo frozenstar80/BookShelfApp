@@ -9,6 +9,8 @@ import com.example.bookshelfapp.data.local.BookEntity
 import com.example.bookshelfapp.data.local.UserCredentials
 import kotlinx.coroutines.flow.Flow
 
+//DAO Class for SQL Queries
+
 @Dao
 interface Dao {
     @Query("SELECT * FROM book")
