@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_home.xml"
+    app:startDestination="@id/booksListFragment">
+
+    <fragment
+        android:id="@+id/booksListFragment"
+        android:name="com.example.bookshelfapp.ui.fragment.BooksListFragment"
+        android:label="BooksListFragment" >
+        <action
+            android:id="@+id/action_booksListFragment_to_bookDetailScreenFragment"
+            app:destination="@id/bookDetailScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookDetailScreenFragment"
+        android:name="com.example.bookshelfapp.ui.fragment.BookDetailScreenFragment"
+        android:label="BookDetailScreenFragment" >
+        <argument
+            android:name="booksEntity"
+            app:argType="com.example.bookshelfapp.data.local.BookEntity"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+</navigation>

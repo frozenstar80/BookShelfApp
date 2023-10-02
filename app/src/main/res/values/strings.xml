@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Your Bookshelf</string>
+    <string name="splash_text">Dive into a universe of stories with Bookshelf</string>
+    <string name="sort_by">Sort by:</string>
+    <string name="title_of_manga">Title of Manga</string>
+    <string name="favs">Favs</string>
+    <string name="hits">Hits</string>
+    <string name="title">Title</string>
+    <string name="ascending_order">Ascending Order -</string>
+    <string name="hits_4564">Hits : 4564</string>
 </resources>

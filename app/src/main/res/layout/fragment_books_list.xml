@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_sort_by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sort_by"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginStart="@dimen/_20dp"
+        />
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_grp"
+        android:layout_width="@dimen/_0dp"
+        app:singleSelection="true"
+        android:layout_marginStart="@dimen/_10dp"
+        app:layout_constraintStart_toEndOf="@id/txt_sort_by"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/txt_sort_by"
+        app:layout_constraintBottom_toBottomOf="@id/txt_sort_by"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_title"
+            android:layout_width="wrap_content"
+            app:chipBackgroundColor="@color/chip_selector"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:checkable="true"
+            android:text="@string/title"
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_hits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:chipBackgroundColor="@color/chip_selector"
+            android:text="@string/hits"
+            android:clickable="true"
+            android:focusable="true"
+            android:checkable="true"
+
+            android:textColor="@color/white"
+
+            />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_fav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:chipBackgroundColor="@color/chip_selector"
+            android:textColor="@color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:checkable="true"
+
+            android:text="@string/favs"
+            />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch_ascending_order"
+        android:layout_width="wrap_content"
+        app:thumbTint="@color/white"
+        android:text="@string/ascending_order"
+        android:layout_marginStart="@dimen/_20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chip_grp"
+        android:layout_height="wrap_content"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_book_list"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="@dimen/_10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/switch_ascending_order" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
